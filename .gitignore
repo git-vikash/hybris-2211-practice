@@ -1,0 +1,65 @@
+# ====================================================================
+# STEP 1: THE WHITE-LIST (Ignore all, then allow only your work)
+# ====================================================================
+/*
+!/bin/
+!/config/
+!.gitignore
+!README.md
+
+# ====================================================================
+# STEP 2: BIN FOLDER FILTERING (Only keep /custom)
+# ====================================================================
+/bin/*
+!/bin/custom/
+
+# ====================================================================
+# STEP 3: CONFIG FILTERING (Ignore sensitive/local data)
+# ====================================================================
+/config/local.properties
+/config/licence/
+/config/security/
+/config/sampleconfigurations/
+
+# ====================================================================
+# STEP 4: HEAVY RUNTIME & BUILD JUNK (From Grok & Standard)
+# ====================================================================
+**/data/
+**/log/
+**/temp/
+**/roles/
+**/gensrc/
+**/classes/
+**/eclipsebin/
+**/target/
+**/bin/  # Specifically for generated bins inside custom extensions
+*.class
+*.log
+*.war
+platformhome.properties
+*testclasses.xml
+Generated*.java
+
+# ====================================================================
+# STEP 5: ADD-ON GENERATED FILES (Essential for 2211)
+# ====================================================================
+**/_ui/addons/
+**/_ui-src/addons/
+**/views/addons/
+**/tld/addons/
+**/tags/addons/
+**/messages/addons/
+**/web/addonsrc/
+
+# ====================================================================
+# STEP 6: IDE & OS FILES
+# ====================================================================
+.idea/
+.vscode/
+*.iml
+.metadata/
+.settings/
+.project
+.classpath
+.DS_Store
+Thumbs.db
