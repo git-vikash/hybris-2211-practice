@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<config xmlns="http://www.hybris.com/cockpit/config"
+	xmlns:na="http://www.hybris.com/cockpitng/config/notifications"
+		xmlns:wz="http://www.hybris.com/cockpitng/config/wizard-config"
+		xmlns:explorer-tree="http://www.hybris.com/cockpitng/config/explorertree"
+>
+
+
+
+	<!-- Notification Area-->
+	<!--
+	<context component="notification-area">
+	    <na:notification-area>	        
+	        <na:notifications eventType="bookstorebackoffice.confirmpickup.event" level="SUCCESS">
+	            <na:message>hmc.action.confirmpickup.success</na:message>
+	        </na:notifications>
+	   </na:notification-area>
+	</context>
+-->
+
+		<!-- Configure the Explorer Tree Navigation Panel -->
+		<context merge-by="module" parent="auto" component="explorer-tree">
+			<explorer-tree:explorer-tree>
+
+				<!-- Parent Folder Node: Bookstore -->
+				<explorer-tree:navigation-node id="Bookstore">
+					<explorer-tree:type-node id="Book_id" code="Book" />
+					<explorer-tree:type-node id="Rental_id" code="Rental" />
+					<explorer-tree:type-node id="RewardStatusLevelEnum_id" code="RewardStatusLevelEnum" />
+					<explorer-tree:type-node id="RewardStatusLevelConfig_id" code="RewardStatusLevelConfig" />
+				</explorer-tree:navigation-node>
+
+			</explorer-tree:explorer-tree>
+		</context>
+
+	<context component="create-wizard" type="Product">
+		<wz:flow id="ProductWizard" title="create.title(ctx.TYPE_CODE)">
+			<wz:step id="step2" label="create.product.descriptions.label" sublabel="create.product.descriptions.sublabel">
+				<wz:content id="step2.content">
+					<wz:property-list root="newProduct">
+						<wz:property qualifier="name" type="java.lang.String"/>
+						<wz:property editor="com.hybris.cockpitng.editor.localized(com.hybris.cockpitng.editor.wysiwyg)" qualifier="description" type="java.lang.String"/>
+						<wz:property qualifier="rentable" type="java.lang.Boolean"/>
+					</wz:property-list>
+				</wz:content>
+			</wz:step>
+		</wz:flow>
+	</context>
+
+	<context component="create-wizard" type="Book" parent="Product" merge-by="type">
+		<wz:flow id="BookWizard" title="create.title(ctx.TYPE_CODE)">
+			<wz:step id="step2" label="create.product.descriptions.label" sublabel="create.product.descriptions.sublabel">
+				<wz:content id="step2.content">
+					<wz:property-list root="newProduct">
+						<wz:property qualifier="name" type="java.lang.String"/>
+						<wz:property editor="com.hybris.cockpitng.editor.localized(com.hybris.cockpitng.editor.wysiwyg)" qualifier="description" type="java.lang.String"/>
+						<wz:property qualifier="rentable" type="java.lang.Boolean"/>
+						<wz:property qualifier="language" type="java.lang.String"/>
+						<wz:property qualifier="ISBN10" type="java.lang.String"/>
+						<wz:property qualifier="ISBN13" type="java.lang.String"/>
+						<wz:property qualifier="publisher" type="java.lang.String"/>
+					</wz:property-list>
+				</wz:content>
+			</wz:step>
+		</wz:flow>
+	</context>
+</config>

@@ -275,7 +275,7 @@
     <extension name='xyformsservices' />
     <extension name='xyformsstorefrontcommons' />
     <extension name='xyformsweb' />
-	
+<!--	
 	<extension name="aotrainingcore"/>					
 	<extension name="aotrainingbackoffice"/>
 	<extension name="aotrainingfacades"/>
@@ -283,6 +283,14 @@
 	<extension name="aotraininginitialdata"/>
 	<extension name="aotrainingtest"/>
 	<extension name="aotrainingstorefront"/>
+-->
+	<extension name="bookstorecore"/>					
+	<extension name="bookstorebackoffice"/>
+	<extension name="bookstorefacades"/>
+	<extension name="bookstorefulfilmentprocess"/>
+	<extension name="bookstoreinitialdata"/>
+	<extension name="bookstoretest"/>
+	<extension name="bookstorestorefront"/>
 	
   </extensions>
 </hybrisconfig>
